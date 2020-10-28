@@ -1,0 +1,14 @@
+version: '3'
+
+services: 
+    players:
+        build: ./express
+        ports: 
+          - 3005:80
+    site:
+      build: ./reactjs
+      stdin_open: true
+      ports:
+          - 3000:3000
+      depends_on: 
+          - players
